@@ -25,6 +25,11 @@ func main() {
 		return
 	}
 
+	partA(lineA, lineB)
+	partB(lineA, lineB)
+}
+
+func partA(lineA, lineB []int) {
 	var sum int
 	for i := 0; i < len(lineA); i++ {
 		diff := lineA[i] - lineB[i]
@@ -34,6 +39,21 @@ func main() {
 		sum += diff
 	}
 
+	fmt.Println(sum)
+}
+
+func partB(lineA, lineB []int) {
+	sum := 0
+	for i := 0; i < len(lineA); i++ {
+		times := 0
+		for _, v := range lineB {
+			if lineA[i] == v {
+				times++
+			}
+		}
+		mul := lineA[i] * times
+		sum += mul
+	}
 	fmt.Println(sum)
 }
 
